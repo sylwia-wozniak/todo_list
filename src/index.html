@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include('./partials/_head.html')
+<body>
+  <div class="header">
+    <div class="header-title">TO DO LIST</div>
+  </div>
+  <div class="task__container">
+    <input class="task-input" id="js-task" type="text" name="task">
+    <div class="task-add js-button">+</div>
+    <div class="alert-empty">WRITE SOMETHING INSIDE</div>
+    <div class="alert-full">IT'S TOO MUCH</div>
+  </div>
+  <div class="note__container js-note-container">
+  </div>
+  <script type="text/template" id="js-note-template">
+      <div class="note-text" id="js-note-text"></div>
+      <div class=" button button--check js-check" >
+        <i class="fa fa-check"></i>
+      </div>
+      <div class="button button--star js-star" >
+        <i class="far fa-star"></i>
+      </div>
+      <div class="button button--close js-close" >
+        <i class="fas fa-times"></i>
+      </div>
+  </script>
+  <div class="footer__container">
+      &copy 2018 Sylwia Woźniak
+  </div>
+<script src="js/main.js"></script>
+</body>
+</html>

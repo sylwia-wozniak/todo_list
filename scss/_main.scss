@@ -1,0 +1,247 @@
+body {
+  font-family: "Open Sans";
+  font-size: 14px;
+}
+
+.header {
+  margin: 0 auto;
+  padding: 50px 0;
+  text-align: center;
+  width: 100%;
+
+  &-title {
+    color: $color-secondary;
+    font-family: $font-main;
+    font-size: 50px;
+  }
+}
+
+.task__container {
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  width: 90%;
+
+  .task-input {
+    display: inline-block;
+    font-family: $font-main;
+    font-size: 20px;
+    height: 67px;
+    padding: 20px;
+    text-align: center;
+    outline: none;
+    vertical-align: top;
+    width: 50%;
+  }
+
+  .task-add {
+    background-color: #fff;
+    border: 1px solid $color-secondary;
+    color: $color-primary;
+    cursor: pointer;
+    font-family: $font-main;
+    font-size: 60px;
+    display: inline-block;
+    height: 67px;
+    line-height: 67px;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: text-bottom;
+    vertical-align: meddium;
+    width: 67px;
+    &:hover {
+      background-color: $color-primary;
+      border: 1px solid transparent;
+      color: #fff;
+    }
+  }
+
+  .alert-empty {
+    display: none;
+  }
+
+  .alert-full {
+    display: none;
+  }
+
+  &--empty {
+    .task-input {
+      border: 1px solid #f57c69;
+    }
+
+    .alert-empty {
+      color: #f57c69;
+      display: block;
+      font-family: $font-main;
+      font-size: 15px;
+      left: calc(50% - 78px);
+      margin: 0 auto;
+      position: absolute;
+      top: 70px;
+    }
+  }
+
+  &--full {
+    .task-input {
+      border: 1px solid #f57c69;
+    }
+
+    .alert-full {
+      color: #f57c69;
+      display: block;
+      font-family: $font-main;
+      font-size: 15px;
+      left: calc(50% - 78px);
+      margin: 0 auto;
+      position: absolute;
+      top: 70px;
+    }
+  }
+}
+
+.note__container {
+  font-size: 0;
+  height: auto;
+  margin: 20px auto;
+  text-align: center;
+  width: 90%;
+
+  .note {
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    height: 300px;
+    margin: 10px;
+    position: relative;
+    width: calc(25% - 20px);
+
+    .note-text {
+      color: $color-secondary;
+      font-family: $font-main;
+      font-size: 28px;
+      height: 85%;
+      padding: 25px 25px 25px;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      position: absolute;
+      text-align: center;
+      vertical-align: middle;
+      width: 100%;
+    }
+
+    .button {
+      bottom: 5px;
+      color: $color-secondary;
+      cursor: pointer;
+      font-size: 30px;
+      position: absolute;
+
+      &--check {
+        left: 10px;
+        &:hover {
+          color: #00a11f;
+          opacity: 0.5;
+        }
+      }
+
+      &--star {
+        left: 50px;
+        &:hover {
+          color: #f5cbc2;
+          opacity: 0.5;
+        }
+      }
+
+      &--close {
+        right: 10px;
+        &:hover {
+          color: #f50015;
+        }
+      }
+    }
+
+    &--checked {
+      .note-text {
+        opacity: 0.7;
+        text-decoration: line-through;
+      }
+
+      .button {
+        &--check {
+          color: #00a11f;
+        }
+      }
+    }
+
+    &--color {
+      background-color: fade_out($color-primary, 0.6);
+
+      .button {
+        &--star {
+          color: #f5cbc2;
+        }
+      }
+    }
+
+    &--close {
+      display: none;
+    }
+  }
+}
+
+.footer__container {
+  display: block;
+  font-family: $font-main;
+  font-size: 14px;
+  margin: 0 auto;
+  padding: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .note__container {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .task__container {
+    .task-input {
+      width: 70%;
+    }
+  }
+
+  .note__container {
+    .note {
+      width: calc(33% - 20px);
+    }
+  }
+}
+
+@media screen and (max-width: 769px) {
+  .note__container {
+    .note {
+      width: calc(50% - 20px);
+    }
+  }
+}
+
+
+@media screen and (max-width: 426px) {
+  .task__container {
+    width: 100%;
+    .task-input {
+      width: 70%;
+    }
+  }
+
+  .note__container {
+    .note {
+      width: calc(100% - 20px);
+    }
+  }
+}
