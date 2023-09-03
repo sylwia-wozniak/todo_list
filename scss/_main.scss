@@ -47,8 +47,7 @@ body {
     line-height: 67px;
     margin: 0 auto;
     text-align: center;
-    vertical-align: text-bottom;
-    vertical-align: meddium;
+    vertical-align: center;
     width: 67px;
     &:hover {
       background-color: $color-primary;
@@ -109,9 +108,9 @@ body {
 
   .note {
     background-color: #fff;
-    -webkit-box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 0px 39px 0px rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: 0 0 39px 0 rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 39px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 39px 0 rgba(0, 0, 0, 0.15);
     display: inline-block;
     height: 300px;
     margin: 10px;
@@ -142,16 +141,14 @@ body {
       &--check {
         left: 10px;
         &:hover {
-          color: #00a11f;
-          opacity: 0.5;
+          color: #c0e100;
         }
       }
 
       &--star {
         left: 50px;
         &:hover {
-          color: #f5cbc2;
-          opacity: 0.5;
+          color: $color-primary;
         }
       }
 
@@ -171,17 +168,17 @@ body {
 
       .button {
         &--check {
-          color: #00a11f;
+          color: #c0e100;
         }
       }
     }
 
     &--color {
-      background-color: fade_out($color-primary, 0.6);
+      border: 2px solid $color-primary;
 
       .button {
         &--star {
-          color: #f5cbc2;
+          color: $color-primary;
         }
       }
     }

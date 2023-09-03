@@ -1,53 +1,53 @@
-(function(){
-    var noteContainer = document.getElementsByClassName('js-note-container')[0];
-    var addTask = document.getElementsByClassName('js-button')[0];
-    var inputContainer = document.getElementById('js-task');
-    var options = {
+document.addEventListener("DOMContentLoaded", function () {
+    const noteContainer = document.querySelector('.js-note-container');
+    const addTask = document.querySelector('.js-button');
+    const inputContainer = document.getElementById('js-task');
+    const options = {
         check: 'note--checked',
         color: 'note--color',
         close: 'note--close'
     };
 
-    if(addTask){
-        addTask.addEventListener('click', function(){note('createNote')});
+    if (addTask) {
+        addTask.addEventListener('click', () => note('createNote'));
     }
 
-    if(inputContainer){
-        bindCheckInput()
+    if (inputContainer) {
+        bindCheckInput();
     }
 
-    function note(create){
-        var taskContainer = document.getElementsByClassName('task__container')[0];
-        var taskContainerClasses = taskContainer.classList;
+    function note(create) {
+        const taskContainer = document.querySelector('.task__container');
+        const taskContainerClasses = taskContainer.classList;
 
-        if(inputContainer.value.length>0 && inputContainer.value.length<70){
+        if (inputContainer.value.length > 0 && inputContainer.value.length < 70) {
             taskContainerClasses.remove('task__container--empty');
             taskContainerClasses.remove('task__container--full');
-            if(create ==='createNote'){
+            if (create === 'createNote') {
                 createNote();
             }
-        }else if(inputContainer.value.length>=70){
+        } else if (inputContainer.value.length >= 70) {
             taskContainerClasses.add('task__container--full');
-        }else{
+        } else {
             taskContainerClasses.add('task__container--empty');
         }
     }
 
-    function createNote(){
-        var noteTemplateHtml = document.getElementById('js-note-template').innerHTML;
-        var newNote = document.createElement('div');
+    function createNote() {
+        const noteTemplateHtml = document.getElementById('js-note-template').innerHTML;
+        const newNote = document.createElement('div');
         newNote.classList.add('note');
         newNote.innerHTML = noteTemplateHtml;
-        var noteTextContainer = newNote.querySelector('#js-note-text');
+        const noteTextContainer = newNote.querySelector('#js-note-text');
         noteTextContainer.innerText = inputContainer.value;
 
-        var checkButton = newNote.querySelector('.js-check');
-        var starButton = newNote.querySelector('.js-star');
-        var closeButton = newNote.querySelector('.js-close');
+        const checkButton = newNote.querySelector('.js-check');
+        const starButton = newNote.querySelector('.js-star');
+        const closeButton = newNote.querySelector('.js-close');
 
-        checkButton = newNote.appendChild(checkButton);
-        starButton = newNote.appendChild(starButton);
-        closeButton = newNote.appendChild(closeButton);
+        newNote.appendChild(checkButton);
+        newNote.appendChild(starButton);
+        newNote.appendChild(closeButton);
         noteContainer.appendChild(newNote);
 
         checkButton.addEventListener('click', check);
@@ -58,39 +58,37 @@
     }
 
     function bindCheckInput() {
-        inputContainer.addEventListener('keyup',function(e){
-            if(e.keyCode === 13){
+        inputContainer.addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
                 note('createNote');
-            }else{
+            } else {
                 note();
             }
         });
     }
 
-    function mark(note,type) {
-        var className = options[type];
-        var noteClasses = note.classList;
-        if (noteClasses.contains(className)){
+    function mark(note, type) {
+        const className = options[type];
+        const noteClasses = note.classList;
+        if (noteClasses.contains(className)) {
             noteClasses.remove(className);
-        }else{
-            note.classList.add(className);
+        } else {
+            noteClasses.add(className);
         }
     }
 
-    function check(){
-        var note = this.parentNode;
-        mark(note,'check');
+    function check() {
+        const note = this.parentNode;
+        mark(note, 'check');
     }
 
     function color() {
-        var note = this.parentNode;
-        mark(note,'color');
+        const note = this.parentNode;
+        mark(note, 'color');
     }
 
     function close() {
-        var note = this.parentNode;
-        mark(note,'close');
+        const note = this.parentNode;
+        mark(note, 'close');
     }
-
-})();
-
+});
